@@ -1,0 +1,25 @@
+public class Factorial{
+  public static int recursiveFactorial(int n){
+    if(n>0){
+      return n*recursiveFactorial(n);
+    }else{
+      return 1;
+    }
+  }
+
+  public static int iterativeFactorial(int n){
+    int result = 1;
+    while(n>0){
+      result *= n;
+      n--;
+    }
+    return result;
+  }
+  public static void main(String ar[]){
+    int recursiveSolution = recursiveFactorial(10);
+		System.out.println("The recursive solution to 10! is: " + recursiveSolution);
+
+		int iterativeSolution = iterativeFactorial(10);
+		System.out.println("The iterative solution to 10! is: " + iterativeSolution);
+  }
+}
