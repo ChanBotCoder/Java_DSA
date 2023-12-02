@@ -2,6 +2,9 @@
 
 Understanding the runtime complexity of algorithms is crucial for assessing their efficiency. Here's a list of common runtimes, ordered from fastest to slowest:
 
+![Image Alt Text](image.png)
+
+
 1. **Θ(1): Constant Runtime**
    -  This is constant runtime. This is the runtime when a program will always do the same thing regardless of the input. For instance, a program that only prints “hello, world” runs in Θ(1) because the program will always just print “hello, world”.
    -  Example: A program that always performs the same action regardless of input, such as printing "hello, world."
