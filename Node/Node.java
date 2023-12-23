@@ -20,8 +20,8 @@ class Node{
     Node secondNode = new Node("I am second node");
     Node thirdNode = new Node("I am Third node");
 
-    firstNode.setNodeNext(secondNode);
-    secondNode.setNodeNext(thirdNode);
+    firstNode.setNextNode(secondNode);
+    secondNode.setNextNode(thirdNode);
 
     Node current_node = firstNode;
 
@@ -30,5 +30,7 @@ class Node{
       current_node = current_node.getNextNode();
     }
   }
+
 }
+
 // https://www.codecademy.com/learn/paths/pass-the-technical-interview-with-java/tracks/getting-started-with-data-structures-java/modules/nodes-java/cheatsheet
