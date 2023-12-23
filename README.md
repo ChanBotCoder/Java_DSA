@@ -1,6 +1,5 @@
 Certainly! Below is a revised README file tailored to your specified data structures and algorithms. Please replace `[programming language]` with the language you are using for your implementations.
 
-```markdown
 # Getting Started With Data Structures and Algorithms
 
 Welcome to the "Getting Started With Data Structures and Algorithms" repository! This collection is focused on implementing and understanding various data structures and algorithms in [programming language].
