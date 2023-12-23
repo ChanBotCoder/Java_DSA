@@ -1,18 +1,19 @@
 public class linkedlist{
-  public static void main(string []args){
+  public static void main(String []args){
     linkedlist seasons = new linkedlist();
     //Command
-    seasons.printList();
-    seasons.addToHead("summer");
-    seasons.addToHead("spring");
-    seasons.printList();
-    seasons.addToTail("fall");
-    seasons.addToTail("winter");
-    seasons.printList();
-    seasons.removeHead();
-    seasons.printList();
+    seasons.printlist();
+    seasons.addtohead("summer");
+    seasons.addtohead("spring");
+    seasons.printlist();
+    seasons.addtotail("fall");
+    seasons.addtotail("winter");
+    seasons.printlist();
+    seasons.removehead();
+    seasons.printlist();
     
   }
+
   public Node head;
   public linkedlist(){
     this.head = null;
@@ -21,7 +22,7 @@ public class linkedlist{
     Node newhead = new Node(data);
     Node current = this.head;
     this.head = newhead;
-    if(currenthead != null) this.head.setNextNode(current);
+    if(current != null) this.head.setNextNode(current);
   }
   public void addtotail(String data){
     Node tail = this.head;
@@ -31,18 +32,18 @@ public class linkedlist{
     }
     tail.setNextNode(new Node(data));
   }
-  public string removehead(){
+  public String removehead(){
     Node removedhead = this.head;
     if(removedhead == null) return null;
     this.head = removedhead.getNextNode();
     return removedhead.data;
   }
-  public string printlist(){
+  public String printlist(){
     String output = "<head> ";
     Node currentNode = this.head;
-    while(currentNOde != null){
+    while(currentNode != null){
       output += currentNode.data+" ";
-      currentNode = currentNode.grtNextNode();
+      currentNode = currentNode.getNextNode();
     }
     output += " <tail>";
     System.out.println(output);
