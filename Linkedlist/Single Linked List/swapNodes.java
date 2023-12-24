@@ -1,3 +1,5 @@
+// import java.util.LinkedList;
+
 public class SwapNodes {
 
     public static void main(String[] args) {
@@ -25,7 +27,7 @@ public class SwapNodes {
         }
 
         while (node1 != null) {
-            if (node1.data == data1) {
+            if (node1.data.equals(data1)) {
                 break;
             }
             node1Prev = node1;
@@ -33,7 +35,7 @@ public class SwapNodes {
         }
 
         while (node2 != null) {
-            if (node2.data == data2) {
+            if (node2.data.equals(data2)) {
                 break;
             }
             node2Prev = node2;
