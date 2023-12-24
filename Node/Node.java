@@ -15,7 +15,7 @@ class Node{
     return this.next;
   }
 
-  public void main(String []args){
+  public static void main(String []args){
     Node firstNode = new Node("I am first node");
     Node secondNode = new Node("I am second node");
     Node thirdNode = new Node("I am Third node");
