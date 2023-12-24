@@ -14,7 +14,6 @@ public class DoublyLinkedList{
     subway.printList();
     subway.removeByData("Times Square");
     subway.printList();
-    
   }
   public Node head;
   public Node tail;
@@ -29,7 +28,7 @@ public class DoublyLinkedList{
     Node currentHead = this.head;
 
     if(currentHead != null){
-      current.setPreviousNode(newHead);
+      currentHead.setPreviousNode(newHead);
       newHead.setNextNode(currentHead);
     }
     this.head = newHead;
@@ -99,12 +98,12 @@ public class DoublyLinkedList{
       }
       currentNode = currentNode.getNextNode();
     }
-    
+
     if(nodeToRemove == null){
       return null;
     }
 
-    if(NodeToRemove == this.head){
+    if(nodeToRemove == this.head){
       this.removeHead();
     }else if(nodeToRemove == this.tail){
       this.removeTail();
@@ -115,18 +114,18 @@ public class DoublyLinkedList{
       previousNode.setNextNode(nextNode);
     }
     return nodeToRemove;
+  }
 // -------------------------------------------------------------------------------------------
     public String printList(){
       Node currentNode = this.head;
       String output = "<head> ";
-      while(currrentTail != null){
-        output += currentNode + " ";
+      while(currentNode != null){
+        output += currentNode.data + " ";
         currentNode = currentNode.getNextNode();
       }
       output += "<tail>";
       System.out.println(output);
       return output;
     }
-    
-  }
 }
+
