@@ -11,11 +11,10 @@ public class LinkedList{
     seasons.printList();
     seasons.removehead();
     seasons.printList();
-    
   }
 
   public Node head;
-  
+
   public LinkedList(){
     this.head = null;
   }
