@@ -12,7 +12,7 @@ public class DoublyLinkedList{
     subway.removeHead();
     subway.removeTail();
     subway.printList();
-    subway.removeByData("Times Square");
+    subway.removedByData("Times Square");
     subway.printList();
   }
   public Node head;
@@ -67,7 +67,7 @@ public class DoublyLinkedList{
     if(removedHead == this.tail){
       this.removeTail();
     }
-    return removedHead;
+    return removedHead.data;
   }
 // -----------------------------------------------------------------------------------------
   public String removeTail() {
@@ -129,3 +129,4 @@ public class DoublyLinkedList{
     }
 }
 
+// https://www.codecademy.com/learn/paths/pass-the-technical-interview-with-java/tracks/linear-data-structures-java/modules/doubly-linked-lists-java/cheatsheet
