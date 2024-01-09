@@ -1,4 +1,4 @@
-public class Quicksort{
+public class QuickSort{
   public int[] quicksort(int[] arr, int start, int end) {
         if (start == end) {
             return arr;
@@ -25,7 +25,7 @@ public class Quicksort{
                 rightIndex--;
             }
             if (leftIndex <= rightIndex) {
-                swap(arr, leftIndex, rightIndex);
+                Swap(arr, leftIndex, rightIndex);
                 System.out.println("Swapping " + arr[leftIndex] + " and " + arr[rightIndex]);
                 leftIndex++;
                 rightIndex--;
