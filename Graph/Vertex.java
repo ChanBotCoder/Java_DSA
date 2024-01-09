@@ -1,55 +1,57 @@
 import java.util.ArrayList;
 
-public class Vertex{
-  private String data;
-  private ArrayList<Edge> edges;
+public class Vertex {
+	private String data;
+	private ArrayList<Edge> edges;
 
-  public Vertex(String inputData){
-    this.data = inputData;
-    this.egdes = new ArrayList<Edge>();
-  }
+	public Vertex(String inputData) {
+		this.data = inputData;
+		this.edges = new ArrayList<Edge>();
+	}
 
-  public void addEdge(Vertex endVertex, Integer weight){
-    this.edge.add(new Edge(this, endVertex, weight));
-  }
+	public void addEdge(Vertex endVertex, Integer weight) {
+		this.edges.add(new Edge(this, endVertex, weight));
+	}
 
-  public void removeEdge(Vertex endVertex){
-    this.edge.removeIf(edge -> edge.getEnd().equals(endVertex));
-  }
+	public void removeEdge(Vertex endVertex) {
+		this.edges.removeIf(edge -> edge.getEnd().equals(endVertex));
+	}
 
-  public String getData(){
-    return this.edges;
-  }
+	public String getData() {
+		return this.data;
+	}
 
-  public ArrayList<Edge> getEdges(){
-    return this.edges;
-  }
+	public ArrayList<Edge> getEdges(){
+		return this.edges;
+	}
 
-  public void print(boolean showWeight){
-    String message = "";
+	public void print(boolean showWeight) {
+		String message = "";
+		
+		if (this.edges.size() == 0) {
+			System.out.println(this.data + " -->");
+			return;
+		}
+		
+		for(int i = 0; i < this.edges.size(); i++) {
+			if (i == 0) {
+				message += this.edges.get(i).getStart().data + " -->  ";
+			}
 
-    if(this.edges.size() == 0){
-      System.out.println(this.data + " -->");
-      return;
-    }
+			message += this.edges.get(i).getEnd().data;
 
-    for(int i=0;i<this.edges.size();i++){
-      if(i==0){
-        message += this.edges.get(i).getStart.data + " --> ";
-      }
+			if (showWeight) {
+				message += " (" + this.edges.get(i).getWeight() + ")";
+			}
 
-      message += this.edge.get(i).getEnd().data;
+			if (i != this.edges.size() - 1) {
+				message += ", ";
+			}
+		}
+		System.out.println(message);
+	}
 
-      if(showWeight){
-        message += " (" + this.edges.get(i).getWeight() + ")";
-      }
+	public static void main(String[] args) {
 
-      if(i != this.edges.size() -1){
-        message += ", ";
-      }
-    }
-    System.out.prinln(message);
-  }
-  public static void main (String[] args){
-  }
+	}
 }
