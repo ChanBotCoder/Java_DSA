@@ -1,60 +1,62 @@
 import java.util.*;
 
-public class Dijkstra{
-  public static Dictionary[] dijkstra(Graph g, Vertex startingVertex){
-    Dictionary<String, Integer> distance = new Hashtable<>();
-    Dictionary<String, Vertex> previous = new Hashtable<>();
-    PriorityQueue<QueueObject> queue = new PriorityQueue<QueueObject>();
+public class Dijkstra {
 
-    queue.add(new QueueObject(startingVertex, 0));
+    public static Dictionary[] dijkstra (Graph g, Vertex startingVertex){
+        Dictionary<String, Integer> distances = new Hashtable<>();
+        Dictionary<String, Vertex> previous = new Hashtable<>();
+        PriorityQueue<QueueObject> queue = new PriorityQueue<QueueObject>();
 
-    for (Vertex v: g.getVertices()) {
-      if(v!= startingVertex){
-        distance.put(v.getData(), Integer.MAX_VALUE);
-      }
-      previous.put(v.getData(), new Vertex("Null"));
-    }
+        queue.add(new QueueObject(startingVertex, 0));
 
-    distances.put(startingVertex.getData(), 0);
-
-    while(queue.size() != 0){
-      Vertex cuurnt = queue.poll().vertex;
-      for (Edge e: current.getEdges()){
-        Integer alternate = distances.get(current.getData()) + e.getWeight();
-        String neighborValue = e.getEnd().getData();
-        if(alternate < distances.get(neighborValue)){
-          distances.put(neighborValue, alternate);
-          previous.put(neighborValue, current);
-          queue.add(new QueueObject(e.getEnd(), distances.get(neighborsValue)));
+        for (Vertex v: g.getVertices()) {
+            if(v != startingVertex){
+                distances.put(v.getData(), Integer.MAX_VALUE);
+            }
+            previous.put(v.getData(), new Vertex("Null"));
         }
-      }
+
+        distances.put(startingVertex.getData(), 0);
+
+
+        while(queue.size() != 0){
+            Vertex current = queue.poll().vertex;
+            for (Edge e: current.getEdges()) {
+                Integer alternate = distances.get(current.getData()) + e.getWeight();
+                String neighborValue = e.getEnd().getData();
+                if (alternate < distances.get(neighborValue)){
+                    distances.put(neighborValue, alternate);
+                    previous.put(neighborValue, current);
+                    queue.add(new QueueObject(e.getEnd(), distances.get(neighborValue)));
+                }
+            }
+        }
+
+        return new Dictionary[]{distances, previous};
     }
 
-    return new Dictionary[]{distances,previous};
-  }
+    public static void shortestPathBetween(Graph g, Vertex startingVertex, Vertex targetVertex){
+        Dictionary[] dijkstraDicts = dijkstra(g, startingVertex);
+        Dictionary distances = dijkstraDicts[0];
+        Dictionary previous = dijkstraDicts[1];
+        Integer distance = (Integer) distances.get(targetVertex.getData());
+        System.out.println("Shortest Distance between " + startingVertex.getData() + " and " + targetVertex.getData());
+        System.out.println(distance);
 
-  public static void shortestPathBetween(Graph g, Vertex startingVertex, Vertex targetVertex){
-    Dictionary[] dijkstraDicts = dijkstra(g, startingVertex);
-    Dictionary distances = dijkstraDicts[0];
-    Dictionary previous = dijkstraDicts[1];
-    Integer distance = (Integer) distances.get(targetVertex.getData());
-    System.out.pritnln("Shortest Distnace between " + startingVertex.getData() + " and " + targetVertex.getData());
-    System.out.println(distance);
-
-    ArrayList<Vertex> path = new ArrayList<>();
-    Vertex v = targetVertex;
-    while(v.getData() != "Null"){
-      path.add(0,v);
-      v = (Vertex) previous.get(v.getData());
+        ArrayList<Vertex> path = new ArrayList<>();
+        Vertex v = targetVertex;
+        while(v.getData() != "Null"){
+            path.add(0,v);
+            v = (Vertex) previous.get(v.getData());
+        }
+        System.out.println("Shortest Path");
+        for (Vertex pathVertex: path){
+            System.out.println(pathVertex.getData());
+        }
     }
-    System.out.println("Shortest Path");
-    for (Vertex pathVertex: path){
-      System.out.println(pathVertex.getData());
-    }
-  }
 
-  public static void dijstraResultPrinter(Dictionary[] d){
-    System.out.println("Distances:\n");
+    public static void dijkstraResultPrinter(Dictionary[] d){
+        System.out.println("Distances:\n");
         for (Enumeration keys = d[0].keys(); keys.hasMoreElements();){
             String nextKey = keys.nextElement().toString();
             System.out.println(nextKey + ": " + d[0].get(nextKey));
