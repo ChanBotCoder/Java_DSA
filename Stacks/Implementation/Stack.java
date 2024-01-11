@@ -33,16 +33,16 @@ public class Stack{
     }
   }
 
-  public void pop(){
-    if(!this.isEmpty()){
-      String data = this.stack.removeHead();
-      this.size--;
-      System.out.println("Removed " + data +"! Stack size is now "+this.data);
-      return data;
-    }else{
-      throw new Error("Stack is empty!");
+  public String pop() {
+    if (!this.isEmpty()) {
+        String data = this.stack.removeHead();
+        this.size--;
+        System.out.println("Removed " + data + "! Stack size is now " + this.size);
+        return data;
+    } else {
+        throw new Error("Stack is empty!");
     }
-  }
+}
 
   public String peek(){
     if(this.isEmpty()){

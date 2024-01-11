@@ -1,20 +1,18 @@
-public class QuickSort{
-  public int[] quicksort(int[] arr, int start, int end) {
-        if (start == end) {
-            return arr;
-        }
-        int index = partition(arr, start, end);
-        if (start < index - 1) {
+import java.util.Arrays;
+
+public class QuickSort {
+
+    public int[] quicksort(int[] arr, int start, int end) {
+        if (start < end) {
+            int index = partition(arr, start, end);
             quicksort(arr, start, index - 1);
-        }
-        if (index < end) {
             quicksort(arr, index, end);
         }
         return arr;
     }
 
     public int partition(int[] arr, int leftIndex, int rightIndex) {
-        int pivot = arr[Math.floorDiv((leftIndex + rightIndex), 2)];
+        int pivot = arr[(leftIndex + rightIndex) / 2];
         System.out.println("The pivot value is: " + pivot);
 
         while (leftIndex <= rightIndex) {
@@ -25,7 +23,7 @@ public class QuickSort{
                 rightIndex--;
             }
             if (leftIndex <= rightIndex) {
-                Swap(arr, leftIndex, rightIndex);
+                swap(arr, leftIndex, rightIndex);
                 System.out.println("Swapping " + arr[leftIndex] + " and " + arr[rightIndex]);
                 leftIndex++;
                 rightIndex--;
@@ -33,5 +31,16 @@ public class QuickSort{
         }
         return leftIndex;
     }
-  
+
+    public void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] inputArr = {3, 5, 2, 90, 4, 7};
+        QuickSort sorter = new QuickSort();
+        System.out.println(Arrays.toString(sorter.quicksort(inputArr, 0, inputArr.length - 1)));
+    }
 }
